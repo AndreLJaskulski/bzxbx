@@ -1,0 +1,323 @@
+}
+
+      // Adiciona ouvinte de eventos em todos os botões de avançar (data-proximo)
+      botoesProximo.forEach(botao => {
+        botao.addEventListener('click', function() {
+          const proxim<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Lenda do Amuleto Perdido</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fonte Google: Cinzel para títulos e Inter para o texto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at center, #1b2838 0%, #0d121d 100%);
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+    
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+    }
+
+    /* Animação suave para troca de passo */
+    .passo {
+      display: none;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .passo.ativo {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Estilização personalizada de cartões e botões */
+    .card-aventura {
+      background: rgba(23, 32, 48, 0.85);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(212, 175, 55, 0.05);
+      backdrop-filter: blur(8px);
+    }
+
+    /* Botão de Avançar */
+    .btn-proximo {
+      background: linear-gradient(135deg, #d4af37 0%, #9a7b1c 100%);
+      color: #0d121d;
+      font-weight: 700;
+      border: 1px solid #f3e5ab;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-proximo:hover {
+      background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(212, 175, 55, 0.5);
+    }
+
+    .btn-proximo:active {
+      transform: translateY(0);
+    }
+
+    /* Botão de Voltar */
+    .btn-voltar {
+      background: rgba(45, 55, 72, 0.7);
+      color: #cbd5e1;
+      font-weight: 600;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-voltar:hover {
+      background: rgba(71, 85, 105, 0.9);
+      color: #ffffff;
+      border-color: rgba(203, 213, 225, 0.6);
+      transform: translateY(-2px);
+    }
+
+    .btn-voltar:active {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="flex flex-col justify-between items-center p-4 md:p-8">
+
+  <!-- Cabeçalho com Título e Barra de Progresso -->
+  <header class="w-full max-w-2xl text-center mb-6">
+    <h1 class="font-cinzel text-3xl md:text-5xl font-bold text-amber-400 tracking-wider mb-2 drop-shadow-md">
+      A Lenda do Amuleto
+    </h1>
+    <p class="text-sm md:text-base text-slate-400 italic">Uma aventura interativa pelas terras de Eldoria</p>
+    
+    <!-- Indicador de Progresso -->
+    <div class="mt-6 bg-slate-800/80 rounded-full h-3 w-full p-0.5 border border-slate-700">
+      <div id="barra-progresso" class="bg-gradient-to-r from-amber-600 to-amber-400 h-full rounded-full transition-all duration-500" style="width: 14%;"></div>
+    </div>
+    <span id="texto-progresso" class="text-xs text-slate-400 mt-1 inline-block">Passo 1 de 7</span>
+  </header>
+
+  <!-- Container Principal dos Passos -->
+  <main class="w-full max-w-2xl card-aventura rounded-2xl p-6 md:p-8 relative min-h-[350px] flex flex-col justify-between">
+    
+    <!-- PASSO 0: Início -->
+    <div class="passo ativo" id="passo-0">
+      <div class="flex items-center space-x-2 text-amber-400 mb-3">
+        <span class="text-2xl">📜</span>
+        <h2 class="font-cinzel text-xl font-bold">Capítulo I: O Despertar</h2>
+      </div>
+      <p class="text-slate-300 leading-relaxed mb-6">
+        Você desperta nas sombras da Floresta dos Sussurros. Ao seu lado, um antigo mapa de couro mostra a localização do lendário Amuleto de Eldoria. O vento sopra entre as árvores antigas, indicando dois caminhos à sua frente.
+      </p>
+      <div class="flex flex-col gap-3 mt-auto">
+        <button class="btn-proximo w-full py-3 px-4 rounded-xl flex items-center justify-between" data-proximo="1">
+          <span>Seguir pela trilha iluminada pelos vaga-lumes</span>
+          <span>➔</span>
+        </button>
+        <button class="btn-proximo w-full py-3 px-4 rounded-xl flex items-center justify-between" data-proximo="2">
+          <span>Entrar no atalho escuro das cavernas</span>
+          <span>➔</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- PASSO 1: Trilha dos Vaga-Lumes -->
+    <div class="passo" id="passo-1">
+      <div class="flex items-center space-x-2 text-amber-400 mb-3">
+        <span class="text-2xl">🌿</span>
+        <h2 class="font-cinzel text-xl font-bold">Capítulo II: O Rio de Prata</h2>
+      </div>
+      <p class="text-slate-300 leading-relaxed mb-6">
+        A trilha de luzes o leva até as margens do Rio de Prata. A ponte de madeira antiga parece frágil, mas há um barco quebrado encalhado perto das rochas.
+      </p>
+      <div class="flex flex-col gap-3">
+        <button class="btn-proximo w-full py-3 px-4 rounded-xl flex items-center justify-between" data-proximo="3">
+          <span>Atravessar com cuidado pela ponte de madeira</span>
+          <span>➔</span>
+        </button>
+        <button class="btn-proximo w-full py-3 px-4 rounded-xl flex items-center justify-between" data-proximo="4">
+          <span>Investigar o barco encalhado nas rochas</span>
+          <span>➔</span>
+        </button>
+        <!-- Botão de Voltar -->
+        <button class="btn-voltar w-full py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 mt-2" data-voltar="0">
+          <span>⬅</span>
+          <span>Voltar ao início da floresta</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- PASSO 2: Caverna Escura -->
+    <div class="passo" id="passo-2">
+      <div class="flex items-center space-x-2 text-amber-400 mb-3">
+        <span class="text-2xl">🦇</span>
+        <h2 class="font-cinzel text-xl font-bold">Capítulo II: As Sombra da Caverna</h2>
+      </div>
+      <p class="text-slate-300 leading-relaxed mb-6">
+        A caverna é fria e úmida. Conforme avança, você encontra inscrições brilhantes na parede e um baú coberto de teias de aranha no chão.
+      </p>
+      <div class="flex flex-col gap-3">
+        <button class="btn-proximo w-full py-3 px-4 rounded-xl flex items-center justify-between" data-proximo="4">
+          <span>Ler as inscrições místicas na parede</span>
+          <span>➔</span>
+        </button>
+        <button class="btn-proximo w-full py-3 px-4 rounded-xl flex items-center justify-between" data-proximo="5">
+          <span>Abrir o baú antigo sem hesitar</span>
+          <span>➔</span>
+        </button>
+        <!-- Botão de Voltar -->
+        <button class="btn-voltar w-full py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 mt-2" data-voltar="0">
+          <span>⬅</span>
+          <span>Voltar ao início da floresta</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- PASSO 3: A Ponte Ruiu -->
+    <div class="passo" id="passo-3">
+      <div class="flex items-center space-x-2 text-amber-400 mb-3">
+        <span class="text-2xl">⚔️</span>
+        <h2 class="font-cinzel text-xl font-bold">Capítulo III: O Guardião do Vale</h2>
+      </div>
+      <p class="text-slate-300 leading-relaxed mb-6">
+        Ao cruzar a ponte com sucesso, você chega ao topo da Colina dos Ventos. Um guardião de pedra ganha vida e exige que você decifre seu enigma para prosseguir!
+      </p>
+      <div class="flex flex-col gap-3">
+        <button class="btn-proximo w-full py-3 px-4 rounded-xl flex items-center justify-between" data-proximo="6">
+          <span>Responder com sabedoria e coragem</span>
+          <span>➔</span>
+        </button>
+        <!-- Botão de Voltar -->
+        <button class="btn-voltar w-full py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 mt-2" data-voltar="1">
+          <span>⬅</span>
+          <span>Voltar para o Rio de Prata</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- PASSO 4: Segredo Revelado -->
+    <div class="passo" id="passo-4">
+      <div class="flex items-center space-x-2 text-amber-400 mb-3">
+        <span class="text-2xl">🗝️</span>
+        <h2 class="font-cinzel text-xl font-bold">Capítulo III: A Chave Esquecida</h2>
+      </div>
+      <p class="text-slate-300 leading-relaxed mb-6">
+        Sua investigação revela uma antiga chave de cristal escondida! Ela brilha em harmonia com o mapa, apontando para o Templo do Sol no pico da montanha.
+      </p>
+      <div class="flex flex-col gap-3">
+        <button class="btn-proximo w-full py-3 px-4 rounded-xl flex items-center justify-between" data-proximo="6">
+          <span>Usar a chave para entrar no Templo do Sol</span>
+          <span>➔</span>
+        </button>
+        <!-- Botões de Voltar para diferentes caminhos passados -->
+        <button class="btn-voltar w-full py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 mt-2" data-voltar="1">
+          <span>⬅</span>
+          <span>Voltar para o Rio de Prata</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- PASSO 5: Armadilha do Baú -->
+    <div class="passo" id="passo-5">
+      <div class="flex items-center space-x-2 text-amber-500 mb-3">
+        <span class="text-2xl">⚠️</span>
+        <h2 class="font-cinzel text-xl font-bold">Caminho Sem Saída!</h2>
+      </div>
+      <p class="text-slate-300 leading-relaxed mb-6">
+        Ao tentar abrir o baú, um sopro de poeira mágica faz você adormecer. Quando acorda, perceber que foi levado de volta pelo espírito da caverna!
+      </p>
+      <div class="flex flex-col gap-3">
+        <!-- Botão de Voltar para recuperar a jornada -->
+        <button class="btn-voltar w-full py-3 px-4 rounded-xl flex items-center justify-center gap-2" data-voltar="2">
+          <span>⬅</span>
+          <span>Retornar para a entrada da caverna</span>
+        </button>
+        <button class="btn-voltar w-full py-2.5 px-4 rounded-xl flex items-center justify-center gap-2" data-voltar="0">
+          <span>🔄</span>
+          <span>Reiniciar Aventura</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- PASSO 6: O Templo e a Vitória -->
+    <div class="passo" id="passo-6">
+      <div class="flex items-center space-x-2 text-amber-400 mb-3">
+        <span class="text-2xl">🏆</span>
+        <h2 class="font-cinzel text-xl font-bold">Capítulo Final: A Lenda Cumprida</h2>
+      </div>
+      <p class="text-slate-300 leading-relaxed mb-6">
+        Você alcança o pedestal dourado no centro do Templo! O Amuleto de Eldoria brilha intensamente ao seu toque, concedendo a você a sabedoria e proteção eterna dos antigos guardiões. Parabéns, herói!
+      </p>
+      <div class="flex flex-col gap-3">
+        <button class="btn-voltar w-full py-3 px-4 rounded-xl flex items-center justify-center gap-2" data-voltar="0">
+          <span>🔄</span>
+          <span>Jogar Novamente</span>
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="mt-8 text-center text-xs text-slate-500">
+    <p>Aventura Interativa • Desenvolvido com HTML, CSS e JavaScript</p>
+  </footer>
+
+  <!-- Lógica JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Seleciona todos os botões de avançar e voltar
+      const botoesProximo = document.querySelectorAll('.btn-proximo');
+      const botoesVoltar = document.querySelectorAll('.btn-voltar');
+      const barraProgresso = document.getElementById('barra-progresso');
+      const textoProgresso = document.getElementById('texto-progresso');
+
+      const totalPassos = 7; // Total de telas/passos do jogo (0 a 6)
+
+      // Função para atualizar a barra de progresso
+      function atualizarProgresso(passoIdNum) {
+        const percentual = Math.min(Math.round(((passoIdNum + 1) / totalPassos) * 100), 100);
+        barraProgresso.style.width = `${percentual}%`;
+        textoProgresso.textContent = `Passo ${passoIdNum + 1} de ${totalPassos}`;
+      }
+
+      // Função genérica para trocar de passo
+      function trocarPasso(passoDestinoId) {
+        const passoAtual = document.querySelector('.passo.ativo');
+        const proximoPasso = document.getElementById(`passo-${passoDestinoId}`);
+
+        if (passoAtual && proximoPasso) {
+          // Oculta o passo atual
+          passoAtual.classList.remove('ativo');
+
+          // Exibe o novo passo
+          proximoPasso.classList.add('ativo');
+
+          // Atualiza a barra de progresso com base no número do passo
+          atualizarProgresso(parseInt(passoDestinoId));
+        }oId = this.getAttribute('data-proximo');
+          trocarPasso(proximoId);
+        });
+      });
+
+      // Adiciona ouvinte de eventos em todos os botões de voltar (data-voltar)
+      botoesVoltar.forEach(botao => {
+        botao.addEventListener('click', function() {
+          const voltarId = this.getAttribute('data-voltar');
+          trocarPasso(voltarId);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
